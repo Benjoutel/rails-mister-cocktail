@@ -1,5 +1,8 @@
 class DosesController < ApplicationController
+  before_action :set_cocktail, only: [:new, :create]
+
   def index
+    @doses = Dose.all
   end
 
   def new
@@ -7,7 +10,7 @@ class DosesController < ApplicationController
   end
 
   def create
-    @dose = Dose.new
+    @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
     if @dose.save
       # <Dose id: 1, cocktail_id: 1, ingredient_id: 6, description: "1/4">

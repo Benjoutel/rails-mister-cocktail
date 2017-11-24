@@ -1,2 +1,7 @@
-<h1>Doses#index</h1>
-<p>Find me in app/views/doses/index.html.erb</p>
+Doses
+
+<% @doses.each do |dose| %>
+<%= dose.name %>
+<%= dose.ingredient.name %>
+<%= dose.ingredient.description %>
+<% end %>
